@@ -4,8 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="./Styles/styles.css" />
     <title>TO_DO_app</title>
   </head>
-  <body></body>
+  <body>
+    <div class="image"></div>
+    <div class="container">
+      <div class="sidebar">
+        <div class="todos">
+          <div class="todo">To-Dos</div>
+          <div class="time" id="today">Today</div>
+          <div class="time" id="week">Week</div>
+          <div class="time" id="month">Month</div>
+          <div class="time" id="year">Year</div>
+          <div class="time" id="all">All</div>
+        </div>
+        <div class="projects">Projects</div>
+        <div class="nodes">Notes</div>
+        <div class="addItem">
+          <button title="Add Item" id="newItem">+</button>
+        </div>
+      </div>
+      <div class="content"></div>
+    </div>
+    <div class="newItemContainer">
+      <div class="header">Add new Item</div>
+      <div class="choice">
+        <div class="addtodo">To Do</div>
+        <div class="node">Node</div>
+      </div>
+      <div class="form"></div>
+    </div>
+  </body>
 </html>

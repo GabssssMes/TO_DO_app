@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log(\"hello\");\n\n\n//# sourceURL=webpack://to_do_app/./src/index.js?");
+eval("const button = document.getElementById(\"newItem\");\nlet newContainer = document.querySelector(\".newItemContainer\");\nlet container = document.querySelector(\".container\");\nlet image = document.querySelector(\".image\");\nlet sidebar = document.querySelector(\".sidebar\");\nbutton.addEventListener(\"click\", () => {\n  image.setAttribute(\"style\", \"filter: blur(8px);-webkit-filter: blur(8px);\");\n  container.setAttribute(\n    \"style\",\n    \"filter: blur(8px);-webkit-filter: blur(8px);\"\n  );\n  button.setAttribute(\"style\", \"display:none;\");\n  sidebar.setAttribute(\"style\", \"display:none;\");\n  newContainer.setAttribute(\"style\", \"display:inline;\");\n});\n\n\n//# sourceURL=webpack://to_do_app/./src/index.js?");
 
 /***/ })
 

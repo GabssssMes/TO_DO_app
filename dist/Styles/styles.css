@@ -1,0 +1,94 @@
+@font-face {
+  font-family: anuphan;
+  src: url("./Anuphan-VariableFont_wght.ttf");
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.image {
+  margin: 0;
+  height: 100%;
+  background: url("../images/Web-design.jpg") no-repeat center fixed;
+  background-size: cover;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 5px;
+  width: clamp(500px, 75%, 1500px);
+  height: 500px;
+  background-color: white;
+  display: flex;
+}
+.sidebar {
+  font-family: anuphan;
+  padding: 10px;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+}
+.todo,
+.projects,
+.nodes {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+.todos {
+}
+.time {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 5px 20px;
+}
+.time:hover,
+.todo:hover,
+.projects:hover,
+.notes:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.addItem {
+  margin: 20px;
+  margin-bottom: 40px;
+  text-align: start;
+}
+.newItemContainer {
+  width: clamp(500px, 50%, 1000px);
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 6fr;
+  display: none;
+}
+.header {
+  grid-area: 1/ 1 / 2 / 3;
+  background-color: beige;
+}
+.choice {
+  background-color: rgb(245, 245, 220, 0.6);
+  grid-area: 2/ 1 / 3 / 2;
+}
+.form {
+  grid-area: 2/ 2 / 3 / 3;
+}
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  border-radius: 50%;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 10px;
+}
