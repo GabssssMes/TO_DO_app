@@ -111,7 +111,8 @@ textarea {
 #what_to_add::backdrop,
 #project::backdrop,
 #node::backdrop,
-#descriptionModal::backdrop {
+#descriptionModal::backdrop,
+#toDoEdit::backdrop {
   backdrop-filter: blur(5px);
 }
 .descElement {
