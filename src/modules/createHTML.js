@@ -1,5 +1,3 @@
-import "../../dist/Styles/styles.css";
-
 function createbody() {
   const body = document.querySelector("body");
   body.innerHTML = `
@@ -71,7 +69,7 @@ function createbody() {
       </div>
       <div class="formelement">
         <label for="date">Due Date</label>
-        <input type="date" id="date" name="date" />
+        <input type="date" id="date" name="date"/>
       </div>
       <div class="formelement">
         Prioritylevel
@@ -107,6 +105,21 @@ function createbody() {
     </form>
   </dialog>
 
+  <dialog id="editProject">
+    <form action="..." method="dialog" id="editProjectForm">
+      <div class="formelement">
+        <label for="title">Project</label>
+        <textarea id="title" rows="1" name="title"></textarea>
+      </div>
+      <div
+        class="formelement"
+        style="padding-top: 20px; justify-content: space-evenly"
+      >
+        <button type="submit" id="editProjectButton">Edit</button>
+        <button id="cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
   <dialog id="node">
     <form action="..." method="dialog" id="newNode">
       <div class="formelement">
@@ -114,14 +127,34 @@ function createbody() {
         <textarea id="title" rows="1" name="title"></textarea>
       </div>
       <div class="formelement">
-        <label for="description">Description</label>
-        <textarea rows="3" id="description" name="description"></textarea>
+        <label for="description">Node</label>
+        <textarea rows="9" id="description" name="description"></textarea>
       </div>
       <div
         class="formelement"
         style="padding-top: 20px; justify-content: space-evenly"
       >
         <button type="submit" id="addNodeButton">Submit</button>
+        <button id="cancel">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="editNode">
+    <form action="..." method="dialog" id="editNodeForm">
+      <div class="formelement">
+        <label for="title">Title</label>
+        <textarea id="title" rows="1" name="title"></textarea>
+      </div>
+      <div class="formelement">
+        <label for="description">Node</label>
+        <textarea rows="9" id="description" name="description"></textarea>
+      </div>
+      <div
+        class="formelement"
+        style="padding-top: 20px; justify-content: space-evenly"
+      >
+        <button type="submit" id="editNodeButton">Edit</button>
         <button id="cancel">Cancel</button>
       </div>
     </form>
@@ -169,10 +202,20 @@ function createbody() {
   </dialog>`;
 }
 function addProjectToForm(title) {
-  const choice = document.getElementById("choice");
-  const project = document.createElement("option");
-  project.setAttribute("value", String(title));
-  project.textContent = String(title);
-  choice.appendChild(project);
+  const choices = document.querySelectorAll("#choice");
+  choices.forEach((choice) => {
+    const project = document.createElement("option");
+    project.setAttribute("value", String(title));
+    project.textContent = String(title);
+    console.log(1);
+    choice.appendChild(project);
+  });
 }
-export { createbody, addProjectToForm };
+function removeProjectFromForm(title) {
+  const removes = document.querySelectorAll("[value='" + String(title) + "']");
+
+  removes.forEach((rem) => {
+    if (rem.parentElement.id == "choice") rem.remove();
+  });
+}
+export { createbody, addProjectToForm, removeProjectFromForm };
