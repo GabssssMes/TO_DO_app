@@ -4,7 +4,6 @@ function description(item) {
   descripts.forEach((descript) => {
     descript.addEventListener("click", () => {
       let descriptionID = descript.parentNode.parentNode.id;
-      console.log(descriptionID);
       for (let i = 0; i < item.length; i++) {
         if (descriptionID == item[i].id) {
           descriptionModal.showModal();
@@ -43,7 +42,6 @@ function descriptionNode(item) {
   descripts.forEach((descript) => {
     descript.addEventListener("click", () => {
       let descriptionID = descript.parentNode.parentNode.id;
-      console.log(descriptionID);
       for (let i = 0; i < item.length; i++) {
         if (descriptionID == item[i].id) {
           descriptionModal.showModal();

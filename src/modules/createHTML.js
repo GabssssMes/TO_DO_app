@@ -19,18 +19,6 @@ function createbody() {
       </div>
     </div>
     <div class="content">
-      <div class="item">
-        <div class="start">
-          <input type="checkbox" id="done" />
-          <div id="title">sport</div>
-        </div>
-        <div class="end">
-          <div id="description">Details</div>
-          <div id="date">20.04.22</div>
-          <i class="fa-solid fa-pen-to-square" id="edit"></i>
-          <i class="fa-solid fa-trash" id="delete"></i>
-        </div>
-      </div>
     </div>
   </div>
   <dialog id="what_to_add">
@@ -207,7 +195,6 @@ function addProjectToForm(title) {
     const project = document.createElement("option");
     project.setAttribute("value", String(title));
     project.textContent = String(title);
-    console.log(1);
     choice.appendChild(project);
   });
 }
@@ -218,4 +205,16 @@ function removeProjectFromForm(title) {
     if (rem.parentElement.id == "choice") rem.remove();
   });
 }
-export { createbody, addProjectToForm, removeProjectFromForm };
+function initialiceProjects(item) {
+  for (let i = 0; i < item.length; i++) {
+    if (item[i].type == "Project") {
+      addProjectToForm(item[i].title);
+    }
+  }
+}
+export {
+  createbody,
+  addProjectToForm,
+  removeProjectFromForm,
+  initialiceProjects,
+};

@@ -1,3 +1,4 @@
+import { storeItems, loadItems } from "./store.js";
 function done(item) {
   const dones = document.querySelectorAll("input[type=checkbox]");
   let donID;

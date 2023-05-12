@@ -112,7 +112,9 @@ textarea {
 #project::backdrop,
 #node::backdrop,
 #descriptionModal::backdrop,
-#toDoEdit::backdrop {
+#toDoEdit::backdrop,
+#editNode::backdrop,
+#editProject::backdrop {
   backdrop-filter: blur(5px);
 }
 .descElement {

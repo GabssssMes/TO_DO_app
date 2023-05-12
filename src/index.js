@@ -2,6 +2,7 @@ import {
   createbody,
   addProjectToForm,
   removeProjectFromForm,
+  initialiceProjects,
 } from "./modules/createHTML.js";
 import { addToDo, addProject, addNode } from "./modules/addItem.js";
 import { done } from "./modules/checkdone.js";
@@ -15,10 +16,12 @@ import {
   printProject,
 } from "./modules/print.js";
 import { description, descriptionNode } from "./modules/description.js";
+import { storeItems, loadItems } from "./modules/store.js";
 
 import "../dist/Styles/styles.css";
 
 createbody();
+//localStorage.clear();
 
 const newItembutton = document.getElementById("newItemButton");
 const typeButton = document.getElementById("addTypeButton");
@@ -46,11 +49,19 @@ const editProjectForm = document.getElementById("editProjectForm");
 
 const add = document.getElementsByName("add");
 
-let item = [],
+let item = loadItems(),
   id = 1,
   editID,
   deleteID,
   helpEditProject;
+
+printToDos(item);
+done(item);
+description(item);
+editToDo();
+del();
+storeItems(item);
+initialiceProjects(item);
 
 newItembutton.addEventListener("click", () => {
   whatmodal.showModal();
@@ -73,7 +84,8 @@ addToDoButton.addEventListener("click", () => {
       newToDoForm.project,
       newToDoForm.date,
       newToDoForm.priority,
-      id
+      id,
+      false
     )
   );
   id++;
@@ -84,6 +96,7 @@ addToDoButton.addEventListener("click", () => {
   description(item);
   editToDo();
   del();
+  storeItems(item);
 });
 
 addProjectButton.addEventListener("click", () => {
@@ -91,10 +104,10 @@ addProjectButton.addEventListener("click", () => {
   addProjectToForm(item[item.length - 1].title);
   newProjectForm.project.value = "";
   id++;
-  id++;
   printProject(item);
   editProject();
   delProject();
+  storeItems(item);
 });
 
 addNodeButton.addEventListener("click", () => {
@@ -106,7 +119,7 @@ addNodeButton.addEventListener("click", () => {
   descriptionNode(item);
   editNode();
   delNode();
-  console.table(item);
+  storeItems(item);
   newNodeForm.title.value = "";
   newNodeForm.description.value = "";
 });
@@ -120,7 +133,8 @@ editToDoButton.addEventListener("click", () => {
       editToDoForm.project,
       editToDoForm.date,
       editToDoForm.priority,
-      id
+      id,
+      false
     )
   );
   for (let i = 0; i < item.length; i++) {
@@ -135,6 +149,7 @@ editToDoButton.addEventListener("click", () => {
   description(item);
   editToDo();
   del();
+  storeItems(item);
 });
 
 editNodeButton.addEventListener("click", () => {
@@ -151,6 +166,7 @@ editNodeButton.addEventListener("click", () => {
   descriptionNode(item);
   editNode();
   delNode();
+  storeItems(item);
 });
 
 editProjectButton.addEventListener("click", () => {
@@ -166,6 +182,7 @@ editProjectButton.addEventListener("click", () => {
   printProject(item);
   editProject();
   delProject();
+  storeItems(item);
 });
 
 function del() {
@@ -183,6 +200,7 @@ function del() {
       description(item);
       editToDo();
       del();
+      storeItems(item);
     });
   });
 }
@@ -200,12 +218,12 @@ function delNode() {
       descriptionNode(item);
       editNode();
       delNode();
+      storeItems(item);
     });
   });
 }
 function delProject() {
   const deletes = document.querySelectorAll("#delete");
-  console.log("jkbjbju");
   deletes.forEach((delet) => {
     delet.addEventListener("click", () => {
       deleteID = delet.parentNode.parentNode.id;
@@ -218,6 +236,7 @@ function delProject() {
       printProject(item);
       editProject();
       delProject();
+      storeItems(item);
     });
   });
 }
@@ -229,7 +248,6 @@ function editToDo() {
       for (let i = 0; i < item.length; i++) {
         if (editID == item[i].id) {
           let olddate = item[i].date.split("/");
-          console.log(olddate[2] + "-" + olddate[1] + "-" + olddate[0]);
           editToDoForm.title.value = item[i].title;
           editToDoForm.description.value = item[i].description;
           editToDoForm.project.value = item[i].project;
@@ -265,7 +283,6 @@ function editProject() {
       for (let i = 0; i < item.length; i++) {
         if (editID == item[i].id) {
           helpEditProject = item[i].title;
-          console.log(helpEditProject);
           editProjectForm.title.value = item[i].title;
           editProjectModal.showModal();
         }
@@ -325,4 +342,12 @@ projects.addEventListener("click", () => {
   printProject(item);
   editProject();
   delProject();
+});
+const todo = document.querySelector(".todo");
+todo.addEventListener("click", () => {
+  printToDos(item);
+  done(item);
+  description(item);
+  editToDo();
+  del();
 });

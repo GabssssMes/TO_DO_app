@@ -2,7 +2,7 @@ import { isThisWeek, isThisMonth, isThisYear, isToday } from "date-fns";
 
 function printToDos(ToDo) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your To-Do-List</h3>";
   for (let i = 0; i < ToDo.length; i++) {
     if (ToDo[i].type == "To_do") {
       let item = document.createElement("div");
@@ -51,7 +51,7 @@ function printToDos(ToDo) {
 }
 function printWeek(ToDo) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your To-Do-List for this week</h3>";
   for (let i = 0; i < ToDo.length; i++) {
     if (ToDo[i].type == "To_do") {
       let newdate = ToDo[i].date.split("/");
@@ -104,7 +104,7 @@ function printWeek(ToDo) {
 }
 function printMonth(ToDo) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your To-Do-List for this month</h3>";
   for (let i = 0; i < ToDo.length; i++) {
     if (ToDo[i].type == "To_do") {
       let newdate = ToDo[i].date.split("/");
@@ -157,7 +157,7 @@ function printMonth(ToDo) {
 }
 function printYear(ToDo) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your To-Do-List for this year</h3>";
   for (let i = 0; i < ToDo.length; i++) {
     if (ToDo[i].type == "To_do") {
       let newdate = ToDo[i].date.split("/");
@@ -210,7 +210,7 @@ function printYear(ToDo) {
 }
 function printToday(ToDo) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your To-Do-List for today</h3>";
   for (let i = 0; i < ToDo.length; i++) {
     if (ToDo[i].type == "To_do") {
       let newdate = ToDo[i].date.split("/");
@@ -264,7 +264,7 @@ function printToday(ToDo) {
 
 function printNode(node) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your Nodes</h3>";
   for (let i = 0; i < node.length; i++) {
     if (node[i].type == "Node") {
       let item = document.createElement("div");
@@ -287,7 +287,7 @@ function printNode(node) {
 
 function printProject(Project) {
   const content = document.querySelector(".content");
-  content.innerHTML = "";
+  content.innerHTML = "<h3>Your Projects</h3>";
   for (let i = 0; i < Project.length; i++) {
     if (Project[i].type == "Project") {
       let item = document.createElement("div");
